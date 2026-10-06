@@ -9,7 +9,11 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+const sql = postgres(process.env.POSTGRES_URL!, {
+  ssl: 'require',
+  // Supabase's transaction pooler may route each query to a different backend.
+  prepare: false,
+});
 
 export async function fetchRevenue() {
   try {
