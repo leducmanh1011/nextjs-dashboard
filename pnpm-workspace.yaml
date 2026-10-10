@@ -3,4 +3,5 @@ packages:
 allowBuilds:
   bcrypt: true
   sharp: false
+  unrs-resolver: false
 minimumReleaseAge: 2880
